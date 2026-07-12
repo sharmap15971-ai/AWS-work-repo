@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Launch a simple EC2 instance
+
+Parameters:
+  KeyName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Select an existing EC2 Key Pair
+
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.medium
+      ImageId: ami-04ea4e8270c27626c   # Replace with your Region's AMI
+      KeyName: !Ref KeyName
+      Tags:
+        - Key: Name
+          Value: ohio-passkey
+
+Outputs:
+  InstanceId:
+    Value: !Ref MyEC2Instance
+
+  PublicIP:
+    Value: !GetAtt MyEC2Instance.PublicIp
