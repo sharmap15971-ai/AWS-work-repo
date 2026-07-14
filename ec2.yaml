@@ -16,10 +16,3 @@ Resources:
       Tags:
         - Key: Name
           Value: ohio-passkey
-
-Outputs:
-  InstanceId:
-    Value: !Ref MyEC2Instance
-
-  PublicIP:
-    Value: !GetAtt MyEC2Instance.PublicIp
